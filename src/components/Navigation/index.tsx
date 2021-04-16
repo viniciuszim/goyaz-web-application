@@ -17,7 +17,7 @@ export default function Navigation(props: LandingPageProps) {
             <a className="navbar-brand" href="/">
               <img
                 src={getImageUrl(imagem.image.url)}
-                style={{ height: 62 }} // 38
+                style={{ height: 46 }} // ideal 46
               />
             </a>
             {/* end logo */}
