@@ -82,7 +82,7 @@ export type RedesSociaisComp = {
 
 // # Pages
 export type LogoPageProps = {
-  Logo: ImageComp
+  imagem: ImageComp
 }
 
 export type MenuPrincipalPageProps = {

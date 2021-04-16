@@ -1,7 +1,9 @@
 import { LandingPageProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
 
 export default function Navigation(props: LandingPageProps) {
-  const { LogoProps, MenuPrincipalProps: menus } = props
+  const { Logo, MenuPrincipal: menus } = props
+  const { imagem } = Logo
 
   return (
     <>
@@ -12,8 +14,11 @@ export default function Navigation(props: LandingPageProps) {
           {/* begin container */}
           <div className="container">
             {/* begin logo */}
-            <a className="navbar-brand" href="#">
-              LaunchPage
+            <a className="navbar-brand" href="/">
+              <img
+                src={getImageUrl(imagem.image.url)}
+                style={{ height: 62 }} // 38
+              />
             </a>
             {/* end logo */}
 
@@ -37,39 +42,22 @@ export default function Navigation(props: LandingPageProps) {
             <div className="navbar-collapse collapse" id="navbarCollapse">
               {/* begin navbar-nav */}
               <ul className="navbar-nav ml-auto">
-                <li>
-                  <a href="#home">Home</a>
-                </li>
-
-                <li>
-                  <a href="#about">About</a>
-                </li>
-
-                <li>
-                  <a href="#testimonials">Testimonials</a>
-                </li>
-
-                <li>
-                  <a href="#portfolio">Work</a>
-                </li>
-
-                <li>
-                  <a href="#team">Team</a>
-                </li>
-
-                <li>
-                  <a href="#features">Features</a>
-                </li>
-
-                <li>
-                  <a href="#pricing">Pricing</a>
-                </li>
-
-                <li className="discover-link">
-                  <a href="#contact" className="discover-btn">
-                    Get Started
-                  </a>
-                </li>
+                {menus &&
+                  menus.map((item, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className={item.alternativo ? 'discover-link' : ''}
+                      >
+                        <a
+                          href={item.link}
+                          className={item.alternativo ? 'discover-btn' : ''}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    )
+                  })}
               </ul>
               {/* end navbar-nav */}
             </div>

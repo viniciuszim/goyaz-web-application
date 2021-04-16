@@ -1,7 +1,7 @@
 import { Banner2PageProps } from 'types/api'
 
 export default function Banner2(props: Banner2PageProps) {
-  console.log(props)
+  // console.log(props)
   return (
     <>
       {/* begin section-grey */}
