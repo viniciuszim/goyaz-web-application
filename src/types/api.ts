@@ -91,6 +91,15 @@ export type MenuPrincipalPageProps = {
   alternativo: boolean
 }
 
+export type BannerPrincipalPageProps = {
+  imagens: [ImageComp]
+  titulo: string
+  descricao: string
+  link: string
+  formulario: FormComp
+  ativo: boolean
+}
+
 export type ParceirosPageProps = {
   titulo: string
   imagens: [ImageComp]
@@ -110,15 +119,6 @@ export type ComoPodemosAjudarPageProps = {
   descricao: string
   TextList: [ListaTextoComp]
   botao: BotaoComp
-  ativo: boolean
-}
-
-export type BannerPrincipalPageProps = {
-  imagens: ImageComp
-  titulo: string
-  descricao: string
-  link: string
-  formulario: FormComp
   ativo: boolean
 }
 
@@ -180,7 +180,7 @@ export type FaleConoscoPageProps = {
 }
 
 export type SocialMidiaPageProps = {
-  itens: RedesSociaisComp
+  itens: [RedesSociaisComp]
   ativo: boolean
 }
 
@@ -188,7 +188,7 @@ export type SocialMidiaPageProps = {
 
 export type LandingPageProps = {
   Logo: LogoPageProps
-  MenuPrincipal: MenuPrincipalPageProps
+  MenuPrincipal: [MenuPrincipalPageProps]
   BannerPrincipal: BannerPrincipalPageProps
   Parceiros: ParceirosPageProps
   OQueFazemos: OQueFazemosPageProps
