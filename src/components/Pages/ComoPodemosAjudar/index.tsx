@@ -1,12 +1,16 @@
 import { ComoPodemosAjudarPageProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
+
+import Button from 'components/Common/Button'
+import TextList from 'components/Common/TextList'
 
 export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
-  const { ativo } = props
+  const { imagem, titulo, descricao, TextList: items, botao, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
+  console.log(items)
   return (
     <>
       {/* begin section-white */}
@@ -23,9 +27,9 @@ export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
             >
               <div className="margin-right-15">
                 <img
-                  src="http://placehold.it/555x425"
+                  src={getImageUrl(imagem.image.url)}
                   className="width-100 image-shadow bottom-margins-images"
-                  alt="pic"
+                  alt={imagem.image.caption || 'pic'}
                 />
               </div>
             </div>
@@ -33,31 +37,13 @@ export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
 
             {/* begin col-md-6*/}
             <div className="col-md-6">
-              <h3>Discover how we can help you to grow your business fast.</h3>
+              <h3>{titulo}</h3>
 
-              <p>
-                Velis demo enim ipsam voluptatem quia voluptas sit aspernatur
-                netsum lorem fugit, seditum netis velas matrix net nesciunt.
-              </p>
+              <p>{descricao}</p>
 
-              <ul className="benefits">
-                <li>
-                  <i className="fas fa-check"></i> Quias netus magni netsum eos
-                  qui ratione sequi.
-                </li>
-                <li>
-                  <i className="fas fa-check"></i> Venis ratione sequi netus
-                  enim quia tempor magni.
-                </li>
-                <li>
-                  <i className="fas fa-check"></i> Enim ipsam netus voluptatem
-                  quia voluptas.
-                </li>
-              </ul>
+              <TextList items={items} />
 
-              <a href="#" className="btn-red small scrool">
-                Discover More
-              </a>
+              <Button {...botao} />
             </div>
             {/* end col-md-6*/}
           </div>
