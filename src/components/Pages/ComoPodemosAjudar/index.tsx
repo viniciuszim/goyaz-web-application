@@ -38,7 +38,7 @@ export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
 
               <TextList items={items} />
 
-              <Button {...botao} />
+              <Button button={botao} />
             </div>
             {/* end col-md-6*/}
           </div>
