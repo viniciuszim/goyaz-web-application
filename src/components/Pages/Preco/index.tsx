@@ -1,12 +1,13 @@
 import { PrecoPageProps } from 'types/api'
 
+import Button from 'components/Common/Button'
+
 export default function Preco(props: PrecoPageProps) {
-  const { ativo } = props
+  const { titulo, descricao, itens, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
   return (
     <>
       {/* begin pricing section */}
@@ -17,68 +18,65 @@ export default function Preco(props: PrecoPageProps) {
           <div className="row align-items-center">
             {/* begin col-md-4 */}
             <div className="col-md-4 col-sm-12">
-              <h3>Great pricing plans tailored to your needs.</h3>
+              <h3>{titulo}</h3>
 
-              <p>
-                Quis autem velis ets reprehender net etid quiste voluptate.
-                Utise wisi enim minim veniam, quis et stationes nets.
-              </p>
+              <p>{descricao}</p>
             </div>
             {/* end col-md-4 */}
 
-            {/* begin col-md-4*/}
-            <div
-              className="col-md-4 col-sm-6 wow bounceIn"
-              data-wow-delay="0.25s"
-              // style="visibility: visible; animation-delay: 0.25s; animation-name: bounceIn;"
-            >
-              <div className="price-box-white">
-                <ul className="pricing-list">
-                  <li className="price-title">MONTHLY</li>
+            {itens &&
+              itens.map((item, index) => {
+                const {
+                  destaque,
+                  tipo,
+                  moeda,
+                  valor,
+                  frequencia,
+                  botao,
+                  itens: itens2,
+                  ativo
+                } = item
 
-                  <li className="price-value">$19</li>
+                if (!ativo) {
+                  return <></>
+                }
 
-                  <li className="price-subtitle">Per Month</li>
+                return (
+                  <div
+                    key={index}
+                    className="col-md-4 col-sm-6 wow bounceIn"
+                    data-wow-delay={`${destaque ? '0.75s' : '0.15s'}`}
+                    // style="visibility: visible; animation-delay: 0.25s; animation-name: bounceIn;"
+                  >
+                    <div
+                      className={`${
+                        destaque ? 'price-box-grey' : 'price-box-white'
+                      }`}
+                    >
+                      <ul className="pricing-list">
+                        <li className="price-title">{tipo}</li>
 
-                  <li className="price-tag">
-                    <a href="#">GET STARTED</a>
-                  </li>
+                        <li className="price-value">{`${moeda}${valor}`}</li>
 
-                  <li className="price-text">First two weeks free.</li>
+                        <li className="price-subtitle">{frequencia}</li>
 
-                  <li className="price-text">Amazing freatures.</li>
-                </ul>
-              </div>
-            </div>
-            {/* end col-md-4 */}
+                        <li className="price-tag">
+                          <Button button={botao} />
+                        </li>
 
-            {/* begin col-md-4 */}
-            <div
-              className="col-md-4 col-sm-6 wow bounceIn"
-              data-wow-delay="0.75s"
-              // style="visibility: visible; animation-delay: 0.75s; animation-name: bounceIn;"
-            >
-              <div className="price-box-grey">
-                <ul className="pricing-list">
-                  <li className="price-title">ANNUALY</li>
-
-                  <li className="price-value">$29</li>
-
-                  <li className="price-subtitle">Per Year</li>
-
-                  <li className="price-tag">
-                    <a href="#">GET STARTED</a>
-                  </li>
-
-                  <li className="price-text">First two weeks free.</li>
-
-                  <li className="price-text">Save 45% with this plan</li>
-
-                  <li className="price-text">Amazing freatures.</li>
-                </ul>
-              </div>
-            </div>
-            {/* end col-md-4 */}
+                        {itens2 &&
+                          itens2.map((item2, index2) => {
+                            return (
+                              <li key={index2} className="price-text">
+                                {item2.label}
+                              </li>
+                            )
+                          })}
+                      </ul>
+                    </div>
+                  </div>
+                )
+              })}
           </div>
           {/* end row */}
         </div>

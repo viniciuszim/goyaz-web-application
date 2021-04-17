@@ -6,7 +6,6 @@ export default function Caracteristicas(props: CaracteristicasPageProps) {
   if (!ativo) {
     return <></>
   }
-  console.log(props)
   return (
     <>
       {/* begin features section */}

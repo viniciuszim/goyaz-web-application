@@ -71,7 +71,7 @@ export type PrecoComp = {
   valor: number
   frequencia: string
   botao: BotaoComp
-  itens: ListaTextoComp
+  itens: [ListaTextoComp]
   ativo: boolean
 }
 
