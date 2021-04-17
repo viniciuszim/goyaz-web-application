@@ -1,12 +1,11 @@
 import { OQueFazemosPageProps } from 'types/api'
 
 export default function OQueFazemos(props: OQueFazemosPageProps) {
-  const { ativo } = props
+  const { titulo, descricao, lista, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
   return (
     <>
       {/* begin section-grey */}
@@ -17,11 +16,9 @@ export default function OQueFazemos(props: OQueFazemosPageProps) {
           <div className="row">
             {/* begin col-md-12 */}
             <div className="col-md-12 text-center margin-bottom-10">
-              <h2 className="section-title">What We Do</h2>
+              <h2 className="section-title">{titulo}</h2>
 
-              <p className="section-subtitle">
-                Dicover how our amazing team can help your business.
-              </p>
+              <p className="section-subtitle">{descricao}</p>
             </div>
             {/* end col-md-12 */}
           </div>
@@ -35,50 +32,21 @@ export default function OQueFazemos(props: OQueFazemosPageProps) {
           <div className="container">
             {/* begin row */}
             <div className="row">
-              {/* begin col-md-4 */}
-              <div className="col-md-4">
-                <div className="main-services blue">
-                  <i className="far fa-chart-bar"></i>
+              {lista &&
+                lista.map((item, index) => {
+                  const { icone, titulo, descricao, cor } = item
+                  return (
+                    <div key={index} className="col-md-4">
+                      <div className={`main-services ${cor}`}>
+                        <i className={`${icone}`}></i>
 
-                  <h4>Google Analitycs</h4>
+                        <h4>{titulo}</h4>
 
-                  <p>
-                    Curabitur quam etsum lacus net netsum nulat iaculis etsimun
-                    vitae etsum nisle varius netsum.
-                  </p>
-                </div>
-              </div>
-              {/* end col-md-4 */}
-
-              {/* begin col-md-4 */}
-              <div className="col-md-4">
-                <div className="main-services red">
-                  <i className="far fa-heart"></i>
-
-                  <h4>Brand Awareness</h4>
-
-                  <p>
-                    Curabitur quam etsum lacus net netsum nulat iaculis etsimun
-                    vitae etsum nisle varius netsum.
-                  </p>
-                </div>
-              </div>
-              {/* end col-md-4 */}
-
-              {/* begin col-md-4 */}
-              <div className="col-md-4">
-                <div className="main-services green">
-                  <i className="fas fa-anchor"></i>
-
-                  <h4>Graphic Design</h4>
-
-                  <p>
-                    Curabitur quam etsum lacus net netsum nulat iaculis etsimun
-                    vitae etsum nisle varius netsum.
-                  </p>
-                </div>
-              </div>
-              {/* end col-md-4 */}
+                        <p>{descricao}</p>
+                      </div>
+                    </div>
+                  )
+                })}
             </div>
             {/* end row */}
           </div>

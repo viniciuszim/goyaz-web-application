@@ -57,6 +57,7 @@ export type IconeDescComp = {
   icone: string
   titulo: string
   descricao: string
+  cor: string
 }
 
 export type ListaTextoComp = {

@@ -61,6 +61,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
     icone
     titulo
     descricao
+    cor
   }
 
   fragment ListaTextoComp on ComponentComponentTextList {

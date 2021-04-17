@@ -7,7 +7,6 @@ export default function Parceiros(props: ParceirosPageProps) {
   if (!ativo) {
     return <></>
   }
-  console.log(props)
   return (
     <>
       {/* begin partners-section*/}
