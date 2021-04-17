@@ -2,7 +2,7 @@
 
 export type AvaliacaoComp = {
   titulo: string
-  valor: string
+  valor: number
 }
 
 export type BotaoComp = {

@@ -1,12 +1,14 @@
 import { DepoimentosPageProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
+
+import Stars from 'components/Common/Stars'
 
 export default function Depoimentos(props: DepoimentosPageProps) {
-  const { ativo } = props
+  const { titulo, descricao, avaliacoes, depoimentos, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
   return (
     <>
       {/* begin testimonials section */}
@@ -17,56 +19,32 @@ export default function Depoimentos(props: DepoimentosPageProps) {
           <div className="row align-items-center">
             {/* begin col-md-5 */}
             <div className="col-md-5 col-sm-12">
-              <h2>What People Are Saying.</h2>
+              <h2>{titulo}</h2>
 
-              <p>
-                Quis autem velis ets reprehender net etid quiste nets voluptate.
-                Utise wisi enim minim veniam, quis etsad aspernatis netsum
-                stationes nets.
-              </p>
+              <p>{descricao}</p>
 
-              {/* begin row*/}
-              <div className="row">
-                {/* begin col-md-4*/}
-                <div className="col-md-4 col-sm-6">
-                  {/* begin testim-platform*/}
-                  <div className="testim-platform first">
-                    <p>TrustPilot</p>
+              {avaliacoes && (
+                <div className="row">
+                  {avaliacoes.map((item, index) => {
+                    const { titulo, valor } = item
+                    return (
+                      <div key={index} className="col-md-4 col-sm-6">
+                        {/* begin testim-platform*/}
+                        <div
+                          className={`testim-platform ${
+                            index === 0 ? 'first' : ''
+                          }`}
+                        >
+                          <p>{titulo}</p>
 
-                    <div className="testim-rating">
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i
-                        className="fas fa-star-half-alt"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                  </div>
-                  {/* end testim-platform*/}
+                          <div className="testim-rating">{Stars(valor)}</div>
+                        </div>
+                        {/* end testim-platform*/}
+                      </div>
+                    )
+                  })}
                 </div>
-                {/* end col-sm-4*/}
-
-                {/* begin col-md-4*/}
-                <div className="col-md-4 col-sm-6">
-                  {/* begin testim-platform*/}
-                  <div className="testim-platform">
-                    <p>Feefo</p>
-
-                    <div className="testim-rating">
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="far fa-star" aria-hidden="true"></i>
-                    </div>
-                  </div>
-                  {/* end testim-platform*/}
-                </div>
-                {/* end col-sm-4*/}
-              </div>
-              {/* end row*/}
+              )}
             </div>
             {/* end col-md-5 */}
 
@@ -76,126 +54,50 @@ export default function Depoimentos(props: DepoimentosPageProps) {
 
             {/* begin col-md-6*/}
             <div className="col-md-6">
-              {/* begin accordion */}
-              <div className="accordion" id="accordionFAQ">
-                {/* begin card */}
-                <div className="card">
-                  <div
-                    id="collapseOne"
-                    className="collapse show"
-                    aria-labelledby="headingOne"
-                    data-parent="#accordionFAQ"
-                  >
-                    <div className="card-body">
-                      Nemo enim ipsam voluptatem quia voluptas situm ets
-                      aspernatis netsum loris fugit, sed quia magni dolores eos
-                      quis ratione sequi etum nets vesciunt neque.
-                    </div>
-                  </div>
+              {depoimentos && (
+                <div className="accordion" id="accordionFAQ">
+                  {depoimentos.map((item, index) => {
+                    const { imagem, nome, cargo, descricao, ativo } = item
+                    if (!ativo) {
+                      return <></>
+                    }
+                    return (
+                      <div key={index} className="card">
+                        <div
+                          id={`collapse${index}`}
+                          className={`collapse ${index === 0 ? 'show' : ''}`}
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionFAQ"
+                        >
+                          <div className="card-body">{descricao}</div>
+                        </div>
 
-                  <div className="card-header" id="headingOne">
-                    <h5 className="mb-0">
-                      <button
-                        className="btn btn-link"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                      >
-                        <img
-                          src="http://placehold.it/200x200"
-                          alt="testimonials"
-                          className="testim-img"
-                        />
-                        <p className="testim-name">
-                          Alexandra Smith / <span>Manager - SmartCoders</span>
-                        </p>
-                      </button>
-                    </h5>
-                  </div>
+                        <div className="card-header" id="headingOne">
+                          <h5 className="mb-0">
+                            <button
+                              className="btn btn-link"
+                              type="button"
+                              data-toggle="collapse"
+                              data-target={`#collapse${index}`}
+                              aria-expanded="true"
+                              aria-controls={`collapse${index}`}
+                            >
+                              <img
+                                src={getImageUrl(imagem.image.url)}
+                                alt={imagem.image.caption}
+                                className="testim-img"
+                              />
+                              <p className="testim-name">
+                                {nome} / <span>{cargo}</span>
+                              </p>
+                            </button>
+                          </h5>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
-                {/* end card */}
-
-                {/* begin card */}
-                <div className="card">
-                  <div
-                    id="collapseTwo"
-                    className="collapse"
-                    aria-labelledby="headingTwo"
-                    data-parent="#accordionFAQ"
-                  >
-                    <div className="card-body">
-                      Nemo enim ipsam voluptatem quia voluptas situm ets
-                      aspernatis netsum loris fugit, sed quia magni dolores eos
-                      quis ratione sequi etum nets vesciunt neque.
-                    </div>
-                  </div>
-
-                  <div className="card-header" id="headingTwo">
-                    <h5 className="mb-0">
-                      <button
-                        className="btn btn-link collapsed"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
-                      >
-                        <img
-                          src="http://placehold.it/200x200"
-                          alt="testimonials"
-                          className="testim-img"
-                        />
-                        <p className="testim-name">
-                          John Doe / <span>CEO - Epic Design</span>
-                        </p>
-                      </button>
-                    </h5>
-                  </div>
-                </div>
-                {/* end card */}
-
-                {/* begin card */}
-                <div className="card">
-                  <div
-                    id="collapseThree"
-                    className="collapse"
-                    aria-labelledby="headingThree"
-                    data-parent="#accordionFAQ"
-                  >
-                    <div className="card-body">
-                      Nemo enim ipsam voluptatem quia voluptas situm ets
-                      aspernatis netsum loris fugit, sed quia magni dolores eos
-                      quis ratione sequi etum nets vesciunt neque.
-                    </div>
-                  </div>
-
-                  <div className="card-header" id="headingThree">
-                    <h5 className="mb-0">
-                      <button
-                        className="btn btn-link collapsed"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#collapseThree"
-                        aria-expanded="false"
-                        aria-controls="collapseThree"
-                      >
-                        <img
-                          src="http://placehold.it/200x200"
-                          alt="testimonials"
-                          className="testim-img"
-                        />
-                        <p className="testim-name">
-                          Christina Pages / <span>Designer - New Fashion</span>
-                        </p>
-                      </button>
-                    </h5>
-                  </div>
-                </div>
-                {/* end card */}
-              </div>
-              {/* end accordion */}
+              )}
             </div>
             {/* end col-md-6*/}
           </div>
