@@ -5,6 +5,7 @@ import Head from 'next/head'
 import 'assets/css/bootstrap.min.css'
 
 /* Loading Template CSS */
+import 'assets/css/main.css'
 import 'assets/css/style.css'
 import 'assets/css/animate.css'
 import 'assets/css/pe-icon-7-stroke.css'
