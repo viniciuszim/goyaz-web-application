@@ -1,12 +1,12 @@
 import { FaleConoscoPageProps } from 'types/api'
 
 export default function FaleConosco(props: FaleConoscoPageProps) {
-  const { ativo } = props
+  const { titulo, descricao, button, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
+  console.log(props)
   return (
     <>
       {/* begin section-bg-2 */}
@@ -19,11 +19,9 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
           <div className="row">
             {/* begin col-md-12*/}
             <div className="col-md-12 text-center padding-bottom-10">
-              <h2 className="section-title white-text">Contact Us</h2>
+              <h2 className="section-title white-text">{titulo}</h2>
 
-              <p className="section-subtitle white">
-                Have any queries? Get in touch today.
-              </p>
+              <p className="section-subtitle white">{descricao}</p>
             </div>
             {/* end col-md-12 */}
           </div>
@@ -46,8 +44,8 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                     className="contact_success_box"
                     style={{ display: 'none' }}
                   >
-                    We received your message and you ll hear from us soon. Thank
-                    You!
+                    Recebemos sua mensagem e você terá notícias nossas em breve.
+                    Obrigad0!
                   </p>
                   {/* end success message */}
 
@@ -64,7 +62,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                         className="contact-input"
                         required
                         name="contact_names"
-                        placeholder="Your Name*"
+                        placeholder="Seu Nome*"
                         type="text"
                       />
 
@@ -72,7 +70,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                         className="contact-input"
                         required
                         name="contact_phone"
-                        placeholder="Phone Number*"
+                        placeholder="Seu Telefone*"
                         type="text"
                       />
                     </div>
@@ -84,21 +82,17 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                         className="contact-input"
                         required
                         name="contact_email"
-                        placeholder="Email Adress*"
+                        placeholder="Email*"
                         type="email"
                       />
 
-                      <select
+                      <input
                         className="contact-input"
                         required
-                        name="contact_ticket"
-                      >
-                        <option value="">Choose Option</option>
-
-                        <option value="Individual">Individual</option>
-
-                        <option value="Corporate">Corporate</option>
-                      </select>
+                        name="contact_email"
+                        placeholder="Sua Cidade*"
+                        type="text"
+                      />
                     </div>
                     {/* end col-md-6*/}
 
@@ -109,11 +103,11 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                         rows={2}
                         cols={20}
                         name="contact_message"
-                        placeholder="Your Message..."
+                        placeholder="Escreva o modelo, versão e ano do seu veículo... (Ford Ka 1.0 SE 2014/2015)"
                       ></textarea>
 
                       <input
-                        value="Get In Touch"
+                        value={button.label}
                         className="contact-submit"
                         type="submit"
                       />
