@@ -1,12 +1,13 @@
+import { isTypeExtensionNode } from 'graphql'
 import { SocialMidiaPageProps } from 'types/api'
 
 export default function SocialMidia(props: SocialMidiaPageProps) {
-  const { ativo } = props
+  const { itens, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
+  console.log(props)
   return (
     <>
       {/* begin footer */}
@@ -18,14 +19,13 @@ export default function SocialMidia(props: SocialMidiaPageProps) {
             {/* begin col-md-5 */}
             <div className="col-md-5">
               <p>
-                © 2020 <span className="template-name">LaunchPage</span>.
-                Designed by{' '}
+                © 2020 Desenvolvido por{' '}
                 <a
-                  href="https://themeforest.net/user/epic-themes/portfolio?ref=Epic-Themes"
+                  href="https://www.flynowsolucoes.com.br"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Epic-Themes
+                  FlyNow Soluções
                 </a>
               </p>
             </div>
@@ -39,43 +39,19 @@ export default function SocialMidia(props: SocialMidiaPageProps) {
             <div className="col-md-5">
               {/* begin footer_social */}
               <ul className="footer_social">
-                <li>Follw us:</li>
+                <li>Siga nos:</li>
 
-                <li>
-                  <a href="#">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i className="fab fa-pinterest"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i className="fab fa-facebook-square"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i className="fab fa-skype"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i className="fab fa-dribble"></i>
-                  </a>
-                </li>
+                {itens &&
+                  itens.map((item, index) => {
+                    const { icone, link } = item
+                    return (
+                      <li key={index}>
+                        <a href={link} target="_blank" rel="noreferrer">
+                          <i className={icone}></i>
+                        </a>
+                      </li>
+                    )
+                  })}
               </ul>
               {/* end footer_social */}
             </div>

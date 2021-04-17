@@ -6,7 +6,6 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
   if (!ativo) {
     return <></>
   }
-  console.log(props)
   return (
     <>
       {/* begin section-bg-2 */}
