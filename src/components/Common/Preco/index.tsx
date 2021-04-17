@@ -1,6 +1,11 @@
 import { PrecoPageProps } from 'types/api'
 
 export default function Preco(props: PrecoPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

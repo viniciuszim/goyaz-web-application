@@ -1,6 +1,11 @@
 import { Banner3PageProps } from 'types/api'
 
 export default function Banner3(props: Banner3PageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

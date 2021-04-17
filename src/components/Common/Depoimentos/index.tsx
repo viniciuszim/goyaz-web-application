@@ -1,6 +1,11 @@
 import { DepoimentosPageProps } from 'types/api'
 
 export default function Depoimentos(props: DepoimentosPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

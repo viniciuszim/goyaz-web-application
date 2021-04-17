@@ -1,7 +1,12 @@
 import { ParceirosPageProps } from 'types/api'
 
 export default function Parceiros(props: ParceirosPageProps) {
-  // console.log(props)
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
+  console.log(props)
   return (
     <>
       {/* begin partners-section*/}

@@ -8,7 +8,6 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
     return <div style={{ height: 108 }}>&nbsp;</div>
   }
 
-  // console.log(props)
   return (
     <>
       {/* begin home section */}

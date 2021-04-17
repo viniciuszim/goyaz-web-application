@@ -1,6 +1,11 @@
 import { SocialMidiaPageProps } from 'types/api'
 
 export default function SocialMidia(props: SocialMidiaPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

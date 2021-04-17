@@ -1,6 +1,11 @@
 import { OQueFazemosPageProps } from 'types/api'
 
 export default function OQueFazemos(props: OQueFazemosPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

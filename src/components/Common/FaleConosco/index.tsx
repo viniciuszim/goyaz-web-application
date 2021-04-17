@@ -1,6 +1,11 @@
 import { FaleConoscoPageProps } from 'types/api'
 
 export default function FaleConosco(props: FaleConoscoPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

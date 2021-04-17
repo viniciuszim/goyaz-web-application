@@ -1,6 +1,11 @@
 import { NumerosPageProps } from 'types/api'
 
 export default function Numeros(props: NumerosPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

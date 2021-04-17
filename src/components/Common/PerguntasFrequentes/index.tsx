@@ -3,6 +3,11 @@ import { PerguntasFrequentesPageProps } from 'types/api'
 export default function PerguntasFrequentes(
   props: PerguntasFrequentesPageProps
 ) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

@@ -1,6 +1,11 @@
 import { CaracteristicasPageProps } from 'types/api'
 
 export default function Caracteristicas(props: CaracteristicasPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>

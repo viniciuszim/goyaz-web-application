@@ -1,6 +1,11 @@
 import { ComoPodemosAjudarPageProps } from 'types/api'
 
 export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
+  const { ativo } = props
+
+  if (!ativo) {
+    return false
+  }
   // console.log(props)
   return (
     <>
