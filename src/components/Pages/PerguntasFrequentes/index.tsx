@@ -3,12 +3,11 @@ import { PerguntasFrequentesPageProps } from 'types/api'
 export default function PerguntasFrequentes(
   props: PerguntasFrequentesPageProps
 ) {
-  const { ativo } = props
+  const { titulo, descricao, itens, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
   return (
     <>
       {' '}
@@ -20,11 +19,9 @@ export default function PerguntasFrequentes(
           <div className="row">
             {/* begin col-md-12*/}
             <div className="col-md-12 text-center padding-bottom-10">
-              <h2 className="section-title">Frequently Asked Questions</h2>
+              <h2 className="section-title">{titulo}</h2>
 
-              <p className="section-subtitle">
-                Quis autem velis ets reprehender net etid quiste voluptate.
-              </p>
+              <p className="section-subtitle">{descricao}</p>
             </div>
             {/* end col-md-12 */}
           </div>
@@ -32,58 +29,22 @@ export default function PerguntasFrequentes(
 
           {/* begin row */}
           <div className="row">
-            {/* begin col-md-6*/}
-            <div className="col-md-6">
-              <div className="faq-box">
-                <h5>Velit ut tortizi pretium viverra suspendisse?</h5>
+            {itens &&
+              itens.map((item, index) => {
+                const { pergunta, resposta, ativo } = item
 
-                <p>
-                  Utise wisi enim minim veniam, quis et stationes ullamcorper
-                  nets suscipit ets lobotis nisle consequat nihis etim. Quis
-                  autem velis ets reprehender net etid quiste voluptate velite
-                  esse sedis.
-                </p>
-              </div>
+                if (!ativo) {
+                  return <></>
+                }
 
-              <div className="faq-box">
-                <h5>Maecenas volutpat blandit etiam?</h5>
+                return (
+                  <div key={index} className="faq-box" style={{ width: '50%' }}>
+                    <h5>{pergunta}</h5>
 
-                <p>
-                  Utise wisi enim minim veniam, quis et stationes ullamcorper
-                  nets suscipit ets lobotis nisle consequat nihis etim. Quis
-                  autem velis ets reprehender net etid quiste voluptate velite
-                  esse sedis.
-                </p>
-              </div>
-            </div>
-            {/* end col-md-6 */}
-
-            {/* begin col-md-6*/}
-            <div className="col-md-6">
-              <div className="faq-box">
-                <h5>Nibh sit amet aliquam commodo?</h5>
-
-                <p>
-                  Utise wisi enim minim veniam, quis et stationes ullamcorper
-                  nets suscipit ets lobotis nisle consequat nihis etim. Quis
-                  autem velis ets reprehender net etid quiste voluptate velite
-                  esse sedis.
-                </p>
-              </div>
-
-              <div className="faq-box">
-                <h5>Elementum curabitur vitae?</h5>
-
-                <p>
-                  Utise wisi enim minim veniam, quis et stationes ullamcorper
-                  nets suscipit ets lobotis nisle consequat nihis etim. Quis
-                  autem velis ets reprehender net etid quiste voluptate velite
-                  esse sedis.
-                </p>
-              </div>
-            </div>
-
-            {/* end col-md-6 */}
+                    <p>{resposta}</p>
+                  </div>
+                )
+              })}
           </div>
           {/* end row */}
         </div>
