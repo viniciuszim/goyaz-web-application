@@ -1,12 +1,12 @@
 import { CaracteristicasPageProps } from 'types/api'
 
 export default function Caracteristicas(props: CaracteristicasPageProps) {
-  const { ativo } = props
+  const { titulo, descricao, itens, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
+  console.log(props)
   return (
     <>
       {/* begin features section */}
@@ -17,11 +17,9 @@ export default function Caracteristicas(props: CaracteristicasPageProps) {
           <div className="row">
             {/* begin col-md-12*/}
             <div className="col-md-12 text-center padding-bottom-10">
-              <h2 className="section-title">Amazing Features</h2>
+              <h2 className="section-title">{titulo}</h2>
 
-              <p className="section-subtitle">
-                Quis autem velis ets reprehender net etid quiste voluptate.
-              </p>
+              <p className="section-subtitle">{descricao}</p>
             </div>
             {/* end col-md-12 */}
           </div>
@@ -29,135 +27,27 @@ export default function Caracteristicas(props: CaracteristicasPageProps) {
 
           {/* begin row */}
           <div className="row">
-            {/* begin col-md-4*/}
-            <div className="col-md-4">
-              <div
-                className="feature-box light-green wow fadeIn"
-                data-wow-delay="0.25s"
-                // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
-              >
-                <i className="fas fa-tools"></i>
+            {itens &&
+              itens.map((item, index) => {
+                const { icone, titulo, descricao, cor } = item
+                return (
+                  <div key={index} className="col-md-4">
+                    <div
+                      className={`feature-box ${cor} wow fadeIn`}
+                      data-wow-delay="0.25s"
+                      // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
+                    >
+                      <i className={`${icone}`}></i>
 
-                <div className="feature-box-text">
-                  <h4>Support 24/7</h4>
+                      <div className="feature-box-text">
+                        <h4>{titulo}</h4>
 
-                  <p>
-                    Utise wisi enim minim veniam, quis tation ullamcorper
-                    suscipit et loboti nisl consequat nihis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* end col-md-4 */}
-
-            {/* begin col-md-4*/}
-            <div className="col-md-4">
-              <div
-                className="feature-box light-blue wow fadeIn"
-                data-wow-delay="0.5s"
-                // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
-              >
-                <i className="fas fa-users"></i>
-
-                <div className="feature-box-text">
-                  <h4>User Friendly</h4>
-
-                  <p>
-                    Utise wisi enim minim veniam, quis tation ullamcorper
-                    suscipit et loboti nisl consequat nihis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* end col-md-4 */}
-
-            {/* begin col-md 4*/}
-            <div className="col-md-4">
-              <div
-                className="feature-box orange wow fadeIn"
-                data-wow-delay="0.75s"
-                // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
-              >
-                <i className="far fa-bell"></i>
-
-                <div className="feature-box-text">
-                  <h4>Notifications</h4>
-
-                  <p>
-                    Utise wisi enim minim veniam, quis tation ullamcorper
-                    suscipit et loboti nisl consequat nihis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* end col-md-4 */}
-          </div>
-          {/* end row */}
-
-          {/* begin row */}
-          <div className="row">
-            {/* begin col-md-4*/}
-            <div className="col-md-4">
-              <div
-                className="feature-box dark-blue wow fadeIn"
-                data-wow-delay="1s"
-                // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
-              >
-                <i className="fas fa-gift"></i>
-
-                <div className="feature-box-text">
-                  <h4>Accesibility</h4>
-
-                  <p>
-                    Utise wisi enim minim veniam, quis tation ullamcorper
-                    suscipit et loboti nisl consequat nihis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* end col-md-4 */}
-
-            {/* begin col-md-4*/}
-            <div className="col-md-4">
-              <div
-                className="feature-box light-red wow fadeIn"
-                data-wow-delay="1.25s"
-                // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
-              >
-                <i className="fas fa-piggy-bank"></i>
-
-                <div className="feature-box-text">
-                  <h4>Cost Control</h4>
-
-                  <p>
-                    Utise wisi enim minim veniam, quis tation ullamcorper
-                    suscipit et loboti nisl consequat nihis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* end col-md-4 */}
-
-            {/* begin col-md-4*/}
-            <div className="col-md-4">
-              <div
-                className="feature-box dark-green wow fadeIn"
-                data-wow-delay="1.5s"
-                // style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"
-              >
-                <i className="far fa-comments"></i>
-
-                <div className="feature-box-text">
-                  <h4>Chat With Friends</h4>
-
-                  <p>
-                    Utise wisi enim minim veniam, quis tation ullamcorper
-                    suscipit et loboti nisl consequat nihis.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* end col-md-4 */}
+                        <p>{descricao}</p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
           </div>
           {/* end row */}
         </div>
