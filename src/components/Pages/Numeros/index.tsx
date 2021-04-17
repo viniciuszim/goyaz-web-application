@@ -1,16 +1,25 @@
 import { NumerosPageProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
 
 export default function Numeros(props: NumerosPageProps) {
-  const { ativo } = props
+  const { background, titulo, itens, ativo } = props
 
   if (!ativo) {
     return <></>
   }
-  // console.log(props)
   return (
     <>
       {/* begin section-bg-1 */}
-      <section className="section-bg-1">
+      <section
+        className="section-bg-1"
+        style={{
+          background: `url(${getImageUrl(background.image.url)})`,
+          backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover'
+        }}
+      >
         <div className="section-bg-overlay"></div>
 
         {/* begin container*/}
@@ -19,7 +28,7 @@ export default function Numeros(props: NumerosPageProps) {
           <div className="row">
             {/* begin col md 7 */}
             <div className="col-md-7 mx-auto margin-bottom-20 text-center">
-              <h2 className="white-text">Fun Facts About Our Agency</h2>
+              <h2 className="white-text">{titulo}</h2>
             </div>
             {/* end col md 7*/}
           </div>
@@ -27,53 +36,26 @@ export default function Numeros(props: NumerosPageProps) {
 
           {/* begin row*/}
           <div className="row">
-            {/* begin fun-facts-box */}
-            <div className="col-md-2 offset-md-2 fun-facts-box text-center">
-              <i className="far fa-gem"></i>
+            {itens &&
+              itens.map((item, index) => {
+                const { icone, titulo, descricao } = item
+                return (
+                  <div
+                    key={index}
+                    className={`col-md-2 ${
+                      index === 0 ? 'offset-md-2' : ''
+                    } fun-facts-box text-center`}
+                  >
+                    <i className={icone}></i>
 
-              <p className="fun-facts-title">
-                <span className="facts-numbers">1050+</span>
-                <br />
-                Projects Completed
-              </p>
-            </div>
-            {/* end fun-facts-box */}
-
-            {/* begin fun-facts-box */}
-            <div className="col-md-2 fun-facts-box text-center">
-              <i className="far fa-heart"></i>
-
-              <p className="fun-facts-title">
-                <span className="facts-numbers">217k</span>
-                <br />
-                Happy Clients
-              </p>
-            </div>
-            {/* end fun-facts-box */}
-
-            {/* begin fun-facts-box */}
-            <div className="col-md-2 fun-facts-box text-center">
-              <i className="fas fa-award"></i>
-
-              <p className="fun-facts-title">
-                <span className="facts-numbers">1210</span>
-                <br />
-                Design Awards
-              </p>
-            </div>
-            {/* end fun-facts-box */}
-
-            {/* begin fun-facts-box */}
-            <div className="col-md-2 fun-facts-box text-center">
-              <i className="fas fa-anchor"></i>
-
-              <p className="fun-facts-title">
-                <span className="facts-numbers">2137</span>
-                <br />
-                Line Of Codes
-              </p>
-            </div>
-            {/* end fun-facts-box */}
+                    <p className="fun-facts-title">
+                      <span className="facts-numbers">{titulo}</span>
+                      <br />
+                      {descricao}
+                    </p>
+                  </div>
+                )
+              })}
           </div>
           {/* end row*/}
         </div>
