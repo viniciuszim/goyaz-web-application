@@ -4,7 +4,7 @@ export default function Banner2(props: Banner2PageProps) {
   const { ativo } = props
 
   if (!ativo) {
-    return false
+    return <></>
   }
   // console.log(props)
   return (

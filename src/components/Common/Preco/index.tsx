@@ -4,7 +4,7 @@ export default function Preco(props: PrecoPageProps) {
   const { ativo } = props
 
   if (!ativo) {
-    return false
+    return <></>
   }
   // console.log(props)
   return (

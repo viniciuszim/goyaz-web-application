@@ -4,7 +4,7 @@ export default function Caracteristicas(props: CaracteristicasPageProps) {
   const { ativo } = props
 
   if (!ativo) {
-    return false
+    return <></>
   }
   // console.log(props)
   return (

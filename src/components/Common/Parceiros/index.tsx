@@ -5,7 +5,7 @@ export default function Parceiros(props: ParceirosPageProps) {
   const { titulo, imagens, ativo } = props
 
   if (!ativo) {
-    return false
+    return <></>
   }
   console.log(props)
   return (

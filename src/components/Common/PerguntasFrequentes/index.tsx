@@ -6,7 +6,7 @@ export default function PerguntasFrequentes(
   const { ativo } = props
 
   if (!ativo) {
-    return false
+    return <></>
   }
   // console.log(props)
   return (

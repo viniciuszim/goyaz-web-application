@@ -4,7 +4,7 @@ export default function Banner3(props: Banner3PageProps) {
   const { ativo } = props
 
   if (!ativo) {
-    return false
+    return <></>
   }
   // console.log(props)
   return (
