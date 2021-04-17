@@ -161,7 +161,7 @@ const GET_LANDING_PAGE = /* GraphQL */ `
 
   fragment Banner2Page on LandingPage {
     Banner2 {
-      imagem {
+      imagens {
         ...ImageComp
       }
       icones {

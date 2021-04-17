@@ -7,7 +7,6 @@ interface TextListData {
 }
 
 export default function TextList({ items }: TextListData) {
-  console.log(items)
   if (items) {
     return (
       <ul className="benefits">

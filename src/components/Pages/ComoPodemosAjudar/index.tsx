@@ -1,7 +1,7 @@
 import { ComoPodemosAjudarPageProps } from 'types/api'
-import { getImageUrl } from 'utils/getImageUrl'
 
 import Button from 'components/Common/Button'
+import Image from 'components/Common/Image'
 import TextList from 'components/Common/TextList'
 
 export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
@@ -10,7 +10,6 @@ export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
   if (!ativo) {
     return <></>
   }
-  console.log(items)
   return (
     <>
       {/* begin section-white */}
@@ -26,11 +25,7 @@ export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
               // style="visibility: visible; animation-delay: 0.25s; animation-name: slideInLeft;"
             >
               <div className="margin-right-15">
-                <img
-                  src={getImageUrl(imagem.image.url)}
-                  className="width-100 image-shadow bottom-margins-images"
-                  alt={imagem.image.caption || 'pic'}
-                />
+                <Image imagem={imagem} alt="pic" />
               </div>
             </div>
             {/* end col-sm-6*/}

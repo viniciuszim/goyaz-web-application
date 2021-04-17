@@ -124,7 +124,7 @@ export type ComoPodemosAjudarPageProps = {
 }
 
 export type Banner2PageProps = {
-  imagem: ImageComp
+  imagens: [ImageComp]
   icones: [IconeDescComp]
   ativo: boolean
 }
