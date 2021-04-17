@@ -7,7 +7,6 @@ export default function SocialMidia(props: SocialMidiaPageProps) {
   if (!ativo) {
     return <></>
   }
-  console.log(props)
   return (
     <>
       {/* begin footer */}
