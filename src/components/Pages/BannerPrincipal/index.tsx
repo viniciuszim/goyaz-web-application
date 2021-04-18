@@ -1,3 +1,6 @@
+import React, { useState } from 'react'
+import InputMask from 'react-input-mask'
+
 import { BannerPrincipalPageProps } from 'types/api'
 import { getImageUrl } from 'utils/getImageUrl'
 
@@ -6,6 +9,23 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
 
   if (!ativo) {
     return <div style={{ height: 108 }}>&nbsp;</div>
+  }
+
+  const [nome, setNome] = useState('')
+  const [telefone, setTelefone] = useState('')
+  const [veiculo, setVeiculo] = useState('')
+
+  const enviarContato = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+
+    window.open(
+      `https://api.whatsapp.com/send?phone=5562999118653&text=Olá, Sou o ${nome}, telefone ${telefone}, veículo ${veiculo}. Gostaria de fazer uma simulação...`,
+      '_target'
+    )
+
+    setNome('')
+    setTelefone('')
+    setVeiculo('')
   }
 
   return (
@@ -21,21 +41,21 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
           backgroundSize: 'cover'
         }}
       >
-        <a href={link} target="_blank" rel="noreferrer">
-          <div className="home-section-overlay"></div>
+        <div className="home-section-overlay"></div>
 
-          {/* begin container */}
-          <div className="container">
-            {/* begin row */}
-            <div className="row">
-              {/* begin col-md-6*/}
-              <div
-                className={
-                  formulario
-                    ? 'col-md-6 padding-top-120'
-                    : 'col-md-12 padding-banner align-center'
-                }
-              >
+        {/* begin container */}
+        <div className="container">
+          {/* begin row */}
+          <div className="row">
+            {/* begin col-md-6*/}
+            <div
+              className={
+                formulario
+                  ? 'col-md-6 padding-top-120'
+                  : 'col-md-12 padding-banner align-center'
+              }
+            >
+              <a href={link} target="_blank" rel="noreferrer">
                 <h1>{titulo}</h1>
 
                 <p className="hero-text">{descricao}</p>
@@ -54,58 +74,78 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
                   <p className="popup-video-text">Watch Presentation Video</p>
                 </div> */}
                 {/* end popup-video-wrapper*/}
-              </div>
-              {/* end col-md-6*/}
+              </a>
+            </div>
+            {/* end col-md-6*/}
 
-              {/* begin col-md-5*/}
-              {formulario && (
-                <div className="col-md-5 offset-md-1 margin-top-20">
-                  {/* begin register-form-wrapper*/}
-                  <div
-                    className="register-form-wrapper wow bounceIn"
-                    data-wow-delay="0.5s"
-                    // style={"visibility: visible; animation-delay: 0.5s; animation-name: bounceIn;"
-                  >
-                    <h3>Get Your Free 14-Day Trial</h3>
+            {/* begin col-md-5*/}
+            {formulario && formulario.ativo && (
+              <div
+                className="col-md-5 offset-md-1 margin-top-20"
+                style={{ zIndex: 9999 }}
+              >
+                {/* begin register-form-wrapper*/}
+                <div
+                  className="register-form-wrapper wow bounceIn"
+                  data-wow-delay="0.5s"
+                  // style={"visibility: visible; animation-delay: 0.5s; animation-name: bounceIn;"
+                >
+                  <h3>{formulario.titulo}</h3>
 
-                    <p>Velis demo enim quia tempor magnet.</p>
+                  <p>{formulario.descricao}</p>
 
-                    {/* begin form*/}
-                    <div>
-                      {/* begin success message */}
-                      <p
-                        className="register_success_box"
-                        style={{ display: 'none' }}
-                      >
-                        We received your message and you ll hear from us soon.
-                        Thank You!
-                      </p>
-                      {/* end success message */}
+                  {/* begin form*/}
+                  <div>
+                    {/* begin success message */}
+                    <p
+                      className="register_success_box2"
+                      style={{ display: 'none' }}
+                    >
+                      Recebemos sua mensagem e você terá notícias nossas em
+                      breve. Obrigado!
+                    </p>
+                    {/* end success message */}
 
-                      {/* begin register form */}
-                      <form
-                        id="register-form"
-                        className="register-form register"
-                        action="php/register.php"
-                        method="post"
-                      >
-                        <input
-                          className="register-input name-input white-input"
-                          required
-                          name="register_names"
-                          placeholder="Company Name*"
-                          type="text"
-                        />
+                    {/* begin register form */}
+                    {/* TODO enviar p/ https://api.whatsapp.com/send?phone=5562999118653&text=Ol%C3%A1%2C%20tudo%20bem%3F%0D%0AVim%20do%20site%2C%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20pro%20meu%20veiculo%3A */}
+                    <form
+                      id="register-form2"
+                      className="register-form register"
+                      action=""
+                      method="post"
+                      onSubmit={enviarContato}
+                    >
+                      <input
+                        className="register-input name-input white-input"
+                        required
+                        name="register_names"
+                        placeholder="Seu Nome*"
+                        type="text"
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
+                      />
 
-                        <input
-                          className="register-input name-email white-input"
-                          required
-                          name="register_email"
-                          placeholder="Email Adress*"
-                          type="email"
-                        />
+                      <InputMask
+                        className="register-input name-input white-input"
+                        required
+                        name="register_names"
+                        placeholder="Seu Telefone*"
+                        mask="(99)99999-9999"
+                        value={telefone}
+                        onChange={(e: any) => setTelefone(e.target.value)}
+                      />
 
-                        <select
+                      <input
+                        className="register-input name-email white-input"
+                        required
+                        name="register_email"
+                        placeholder="Seu Veículo*"
+                        type="text"
+                        value={veiculo}
+                        onChange={(e) => setVeiculo(e.target.value)}
+                      />
+
+                      {/* <select
                           className="register-input white-input"
                           required
                           name="register_ticket"
@@ -117,31 +157,30 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
                           <option value="Professional">
                             Our Sales Department
                           </option>
-                        </select>
+                        </select> */}
 
-                        <input
-                          value="Start My Free 14-Day Trial"
-                          className="register-submit"
-                          type="submit"
-                        />
-                      </form>
-                      {/* end register form */}
+                      <input
+                        value={formulario.botao.label}
+                        className="register-submit"
+                        type="submit"
+                      />
+                    </form>
+                    {/* end register form */}
 
-                      <p className="register-form-terms">
+                    {/* <p className="register-form-terms">
                         No Credit Card &#8226; No Installation Required
-                      </p>
-                    </div>
-                    {/* end form*/}
+                      </p> */}
                   </div>
-                  {/* end register-form-wrapper*/}
+                  {/* end form*/}
                 </div>
-              )}
-              {/* end col-md-5*/}
-            </div>
-            {/* end row */}
+                {/* end register-form-wrapper*/}
+              </div>
+            )}
+            {/* end col-md-5*/}
           </div>
-          {/* end container */}
-        </a>
+          {/* end row */}
+        </div>
+        {/* end container */}
       </section>
       {/* end home section */}
     </>

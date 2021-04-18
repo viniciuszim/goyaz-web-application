@@ -4,6 +4,7 @@ import Navigation from 'components/Navigation'
 import Banner2 from 'components/Pages/Banner2'
 import Banner3 from 'components/Pages/Banner3'
 import BannerPrincipal from 'components/Pages/BannerPrincipal'
+import Boleto from 'components/Pages/Boleto'
 import Caracteristicas from 'components/Pages/Caracteristicas'
 import ComoPodemosAjudar from 'components/Pages/ComoPodemosAjudar'
 import Depoimentos from 'components/Pages/Depoimentos'
@@ -37,6 +38,10 @@ const Main = (props: LandingPageProps) => {
 
       <BannerPrincipal {...BannerPrincipalProps} />
 
+      <Caracteristicas {...CaracteristicasProps} />
+
+      <Boleto />
+
       <Parceiros {...ParceirosProps} />
 
       <OQueFazemos {...OQueFazemosProps} />
@@ -50,8 +55,6 @@ const Main = (props: LandingPageProps) => {
       <Depoimentos {...DepoimentosProps} />
 
       <Banner3 {...Banner3Props} />
-
-      <Caracteristicas {...CaracteristicasProps} />
 
       <Preco {...PrecoProps} />
 
