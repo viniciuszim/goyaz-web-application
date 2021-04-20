@@ -1,4 +1,5 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
+//  import { GetStaticProps } from 'next'
 
 import Main from 'components/Main'
 
@@ -9,7 +10,8 @@ import { LandingPageProps } from 'types/api'
 
 const Index = (props: LandingPageProps) => <Main {...props} />
 
-export const getStaticProps: GetStaticProps = async () => {
+// getStaticProps
+export const getServerSideProps: GetServerSideProps = async () => {
   const { landingPage } = await client.request(GET_LANDING_PAGE)
 
   return {
