@@ -9,5 +9,7 @@ module.exports = withPWA({
   },
   future: {
     webpack5: true
-  }
+  },
+  // Target must be serverless
+  target: 'serverless'
 })
