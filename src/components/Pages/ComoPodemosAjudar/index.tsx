@@ -13,7 +13,7 @@ export default function ComoPodemosAjudar(props: ComoPodemosAjudarPageProps) {
   return (
     <>
       {/* begin section-white */}
-      <section className="section-white">
+      <section className="section-white" id="como-podemos-ajudar">
         {/* begin container*/}
         <div className="container">
           {/* begin row*/}

@@ -12,6 +12,7 @@ export default function Numeros(props: NumerosPageProps) {
       {/* begin section-bg-1 */}
       <section
         className="section-bg-1"
+        id="numbers"
         style={{
           background: `url(${getImageUrl(background.image.url)})`,
           backgroundPosition: 'top center',

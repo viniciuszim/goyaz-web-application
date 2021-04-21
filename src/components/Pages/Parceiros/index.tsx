@@ -10,7 +10,7 @@ export default function Parceiros(props: ParceirosPageProps) {
   return (
     <>
       {/* begin partners-section*/}
-      <div className="partners-section">
+      <div className="partners-section" id="partners">
         {/* begin container*/}
         <div className="container">
           {/* begin row*/}
