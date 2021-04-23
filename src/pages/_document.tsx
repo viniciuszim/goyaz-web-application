@@ -39,6 +39,19 @@ export default class MyDocument extends Document {
       <Html lang="pt-BR">
         <Head />
         <body>
+          {/* <!-- Google Tag Manager (noscript) --> */}
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NTSZ7GJ"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          ></iframe>`
+            }}
+          ></noscript>
+          {/* <!-- End Google Tag Manager (noscript) --> */}
+
           <Main />
           <NextScript />
         </body>

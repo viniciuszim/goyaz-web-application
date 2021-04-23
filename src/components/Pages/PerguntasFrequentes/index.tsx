@@ -38,7 +38,10 @@ export default function PerguntasFrequentes(
                 }
 
                 return (
-                  <div key={index} className="faq-box" style={{ width: '50%' }}>
+                  <div
+                    key={index}
+                    className="faq-box col-md-4 col-sm-6 col-xs-12 p-20 m-0"
+                  >
                     <h5>{pergunta}</h5>
 
                     <p>{resposta}</p>
