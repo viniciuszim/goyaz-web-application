@@ -442,6 +442,10 @@ iframe {
 	margin-bottom: 140px !important;
 }
 
+.p-20 {
+  padding: 20px;
+}
+
 .padding-top-0 {
 	padding-top: 0px !important;
 }
@@ -914,7 +918,7 @@ ul.footer_social li a i:hover {
 input.register-input, select.register-input{
 	width: 100%!important;
     height: 52px!important;
-    padding-left: 11%!important;
+    padding-left: 15%!important;
     padding-right: 5%!important;
     margin-bottom: 15px!important;
     color: #555!important;
