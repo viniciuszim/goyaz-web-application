@@ -126,7 +126,7 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
                       />
 
                       <InputMask
-                        className="register-input name-input white-input"
+                        className="register-input name-telefone white-input"
                         required
                         name="register_names"
                         placeholder="Seu Telefone*"
@@ -136,7 +136,7 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
                       />
 
                       <input
-                        className="register-input name-email white-input"
+                        className="register-input name-veiculo white-input"
                         required
                         name="register_email"
                         placeholder="Seu Veículo*"

@@ -17,16 +17,39 @@ export default function SocialMidia(props: SocialMidiaPageProps) {
           <div className="row">
             {/* begin col-md-5 */}
             <div className="col-md-5">
-              <p>
-                © 2020 Desenvolvido por{' '}
-                <a
-                  href="https://www.flynowsolucoes.com.br"
-                  target="_blank"
-                  rel="noreferrer"
+              <div className="row">
+                <div
+                  className="col-xs-12 col-sm-6"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    padding: 0
+                  }}
                 >
-                  FlyNow Soluções
-                </a>
-              </p>
+                  <p>
+                    <i className="fa fa-phone"></i> Assistência 24h
+                  </p>
+                  <p style={{ paddingLeft: 22 }}>0800 605 0088</p>
+                </div>
+                <div className="col-xs-12 col-sm-6" style={{ padding: 0 }}>
+                  <a href="#boleto" className="btn-red small scrool">
+                    2ª Via de Boleto
+                  </a>
+                </div>
+                <div className="col-xs-12" style={{ padding: 0 }}>
+                  <p style={{ marginTop: 30 }}>
+                    © 2020 Desenvolvido por{' '}
+                    <a
+                      href="https://www.flynowsolucoes.com.br"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      FlyNow Soluções
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
             {/* end col-md-5 */}
 

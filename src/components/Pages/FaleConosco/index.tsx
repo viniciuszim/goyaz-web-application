@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import InputMask from 'react-input-mask'
+import emailjs from 'emailjs-com'
 
 import { FaleConoscoPageProps } from 'types/api'
 
@@ -16,15 +17,24 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
   const [cidade, setCidade] = useState('')
   const [mensagem, setMensagem] = useState('')
 
-  const enviarContato = (e: { preventDefault: () => void }) => {
+  const enviarContato = (e: { preventDefault: () => void; target: any }) => {
     e.preventDefault()
 
-    // TODO ENVIAR EMAIL
-    console.log(nome)
-    console.log(telefone)
-    console.log(email)
-    console.log(cidade)
-    console.log(mensagem)
+    emailjs
+      .sendForm(
+        'service_z653bst',
+        'template_648bdv3',
+        e.target,
+        'user_EZTKfgYEVqYAG1vgPPTsU'
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
 
     setNome('')
     setTelefone('')
@@ -88,7 +98,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                       <input
                         className="contact-input"
                         required
-                        name="contact_names"
+                        name="from_name"
                         placeholder="Seu Nome*"
                         type="text"
                         value={nome}
@@ -98,7 +108,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                       <InputMask
                         className="contact-input"
                         required
-                        name="contact_phone"
+                        name="from_phone"
                         placeholder="Seu Telefone*"
                         mask="(99)99999-9999"
                         value={telefone}
@@ -112,7 +122,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                       <input
                         className="contact-input"
                         required
-                        name="contact_email"
+                        name="from_email"
                         placeholder="Seu E-mail*"
                         type="email"
                         value={email}
@@ -122,7 +132,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                       <input
                         className="contact-input"
                         required
-                        name="contact_email"
+                        name="from_cidade"
                         placeholder="Sua Cidade*"
                         type="text"
                         value={cidade}
@@ -137,7 +147,7 @@ export default function FaleConosco(props: FaleConoscoPageProps) {
                         className="contact-input"
                         rows={2}
                         cols={20}
-                        name="contact_message"
+                        name="message"
                         placeholder="Escreva o modelo, versão e ano do seu veículo... (Ford Ka 1.0 SE 2014/2015)"
                         value={mensagem}
                         onChange={(e) => setMensagem(e.target.value)}

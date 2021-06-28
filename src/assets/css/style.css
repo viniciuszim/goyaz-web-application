@@ -936,6 +936,14 @@ input.name-email{
     background: url('../images/input-envelope.png') no-repeat 12px 15px;
 }
 
+input.name-telefone{
+  background: url('../images/input-phone.png') no-repeat 12px 15px;
+}
+
+input.name-veiculo{
+  background: url('../images/input-car.png') no-repeat 12px 15px;
+}
+
 select.register-input{
     background: url('../images/input-select.png') no-repeat 12px 15px;
 }
@@ -2109,4 +2117,30 @@ ul.benefits.white li i {
 	    margin-left: 0;
 	}
 
+}
+
+.whatsapp {
+  position: fixed;
+  top: 74%;
+  right: 3%;
+  padding: 10px;
+  z-index: 10000000;
+}
+
+@media (max-width: 991px) {
+	.whatsapp {
+	  right: 2%;
+	}
+}
+
+@media (max-width: 768px) {
+	.whatsapp {
+	  right: 2%;
+	}
+}
+
+@media (max-width: 375px) {
+	.whatsapp {
+	  right: 1%;
+	}
 }
