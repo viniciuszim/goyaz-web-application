@@ -27,6 +27,9 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="" />
 
         <title>Goyaz Mútua</title>
+        <link rel="shortcut icon" href="/img/favicon_goyaz.png" />
+        <link rel="apple-touch-icon" href="/img/favicon_goyaz.png" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* Fonts */}
         <link
