@@ -45,7 +45,7 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
           backgroundSize: 'cover'
         }}
       >
-        <div className="home-section-overlay"></div>
+        <div className="home-section-overlay2"></div>
 
         {/* begin container */}
         <div className="container">
