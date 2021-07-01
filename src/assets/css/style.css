@@ -791,6 +791,10 @@ ul.footer_social li a i:hover {
 	background-size: cover;
 }
 
+.home-section-no-form {
+  padding-bottom: 600px;
+}
+
 .home-section-overlay{
 	width: 100%;
 	background: #000;

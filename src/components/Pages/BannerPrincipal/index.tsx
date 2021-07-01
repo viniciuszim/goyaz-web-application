@@ -32,7 +32,11 @@ export default function BannerPrincipal(props: BannerPrincipalPageProps) {
     <>
       {/* begin home section */}
       <section
-        className="home-section"
+        className={
+          formulario && formulario.ativo
+            ? 'home-section'
+            : 'home-section home-section-no-form'
+        }
         id="home"
         style={{
           background: `url(${getImageUrl(
