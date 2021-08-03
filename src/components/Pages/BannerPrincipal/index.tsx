@@ -30,7 +30,7 @@ const sliderSettings = {
 
 export default function BannerPrincipal(props: BannerPrincipalProps) {
   const { lista } = props
-  console.log(lista)
+
   if (!lista) {
     return <div style={{ height: 108 }}>&nbsp;</div>
   }
@@ -52,13 +52,10 @@ export default function BannerPrincipal(props: BannerPrincipalProps) {
     setVeiculo('')
   }
 
-  const handleSection = ({
-    imagens,
-    titulo,
-    descricao,
-    link,
-    formulario
-  }: BannerPrincipalPageProps) => {
+  const handleSection = (
+    { imagens, titulo, descricao, link, formulario }: BannerPrincipalPageProps,
+    index: number
+  ) => {
     return (
       <>
         {/* begin home section */}
@@ -68,7 +65,7 @@ export default function BannerPrincipal(props: BannerPrincipalProps) {
               ? 'home-section'
               : 'home-section home-section-no-form'
           }
-          id="home"
+          id={index === 0 ? 'home' : `home-${index}`}
           style={{
             background: `url(${getImageUrl(
               imagens.image.url
@@ -228,7 +225,7 @@ export default function BannerPrincipal(props: BannerPrincipalProps) {
         if (!banner.ativo && index === 0) {
           return <div style={{ height: 108 }}>&nbsp;</div>
         }
-        return handleSection(banner)
+        return <div key={index}>{handleSection(banner, index)}</div>
       })}
     </Slider>
   )
