@@ -54,7 +54,8 @@ export default function BannerPrincipal(props: BannerPrincipalProps) {
 
   const handleSection = (
     { imagens, titulo, descricao, link, formulario }: BannerPrincipalPageProps,
-    index: number
+    index: number,
+    size: number
   ) => {
     return (
       <>
@@ -63,6 +64,8 @@ export default function BannerPrincipal(props: BannerPrincipalProps) {
           className={
             formulario && formulario.ativo
               ? 'home-section'
+              : size === 1
+              ? 'home-section home-section-no-form-big'
               : 'home-section home-section-no-form'
           }
           id={index === 0 ? 'home' : `home-${index}`}
@@ -225,7 +228,9 @@ export default function BannerPrincipal(props: BannerPrincipalProps) {
         if (!banner.ativo && index === 0) {
           return <div style={{ height: 108 }}>&nbsp;</div>
         }
-        return <div key={index}>{handleSection(banner, index)}</div>
+        return (
+          <div key={index}>{handleSection(banner, index, lista.length)}</div>
+        )
       })}
     </Slider>
   )

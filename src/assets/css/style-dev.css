@@ -1,4 +1,8 @@
 
+.home-section-no-form-big {
+  padding-bottom: 600px;
+}
+
 @media (max-width: 991px) {
 	.text-md-left {
 	  text-align: left;
