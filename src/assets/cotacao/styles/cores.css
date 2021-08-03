@@ -1,0 +1,15 @@
+:root{
+  /* A cor principal e uma variação dela, serve para o gradient do Banner */
+  --corDefault: rgb(0 109 181);
+  --corDefaultDark: rgb(0 109 181);
+  /* Cor Botão */
+  --corButtonBanner: rgb(141 201 108);
+  /* Usado para a borda do número no Banner */
+  --corDefaultOpacity: #ffffff;
+  /* Cor dos Ícones */
+  --corDefaultIcons: rgb(141 201 108);
+  /* Cor do Rodapé */
+  --corFooter: rgb(141 201 108);
+  /* Usado para a borda no rodapé */
+  --corDefaultIconsOpacity: rgba(255, 255, 255, 0.15);
+}

@@ -4,6 +4,10 @@ import Head from 'next/head'
 /* Loading Bootstrap */
 import 'assets/css/bootstrap.min.css'
 
+/* COTACAO CSS */
+import 'assets/cotacao/styles/cores.css'
+import 'assets/cotacao/styles/styles.css'
+
 /* Loading Template CSS */
 import 'assets/css/main.css'
 import 'assets/css/style.css'
@@ -59,6 +63,14 @@ function App({ Component, pageProps }: AppProps) {
         <script src="js/wow.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/custom.js"></script>
+
+        {/* COTACAO JS */}
+        <script src="cotacao/scripts/pwr.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `function loadPage(){PowerCRM.init(['goy4z262']);}`
+          }}
+        ></script>
 
         {/* <!-- Google Tag Manager --> */}
         <script
