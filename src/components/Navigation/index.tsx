@@ -21,51 +21,59 @@ export default function Navigation(props: LandingPageProps) {
         <div className="col-xs-12 col-sm-2">&nbsp;</div>
         <div className="col-xs-12 col-sm-8">
           <div
+            className="row"
             style={{
-              flex: 1,
-              display: 'flex',
-              justifyContent: 'center',
+              // flex: 1,
+              // display: 'flex',
+              // justifyContent: 'center',
               color: 'white',
               alignItems: 'center',
               backgroundColor: 'black',
-              height: 40
+              minHeight: 40
             }}
           >
-            <i
-              className="fa fa-phone"
-              style={{
-                color: 'var(--secundary-color)',
-                fontSize: 18,
-                fontWeight: 'bold',
-                marginRight: 10
-              }}
-            ></i>
-            <span>Grande Goiânia:&nbsp;</span>
-            <span>(62) 3287-4569</span>
-            <span style={{ marginLeft: 10, marginRight: 10 }}>
-              &nbsp;&nbsp;|&nbsp;&nbsp;
-            </span>
-            <i
-              className="fab fa-whatsapp"
-              style={{
-                color: 'var(--secundary-color)',
-                fontSize: 18,
-                fontWeight: 'bold',
-                marginRight: 10
-              }}
-            ></i>
-            <span>WhatsApp:&nbsp;</span>
-            <a
-              href="https://api.whatsapp.com/send?phone=5562995531771&text=Olá, queria uma informação..."
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                color: 'white',
-                textDecoration: 'underline'
-              }}
-            >
-              (62) 99553-1771
-            </a>
+            <div className="hidden-xs hidden-sm col-md-1">&nbsp;</div>
+            <div className="col-xs-12 col-sm-12 col-md-5 text-md-right text-sm-center">
+              <i
+                className="fa fa-phone"
+                style={{
+                  color: 'var(--secundary-color)',
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                  marginRight: 10
+                }}
+              ></i>
+              <span>Grande Goiânia:&nbsp;</span>
+              <span>(62) 3287-4569</span>
+            </div>
+            <div className="hidden-xs hidden-sm col-md-1">
+              <span style={{ marginLeft: 10, marginRight: 10 }}>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+              </span>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-5 text-md-left text-sm-center">
+              <i
+                className="fab fa-whatsapp"
+                style={{
+                  color: 'var(--secundary-color)',
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                  marginRight: 10
+                }}
+              ></i>
+              <span>WhatsApp:&nbsp;</span>
+              <a
+                href="https://api.whatsapp.com/send?phone=5562995531771&text=Olá, queria uma informação..."
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  color: 'white',
+                  textDecoration: 'underline'
+                }}
+              >
+                (62) 99553-1771
+              </a>
+            </div>
           </div>
         </div>
         <div className="col-xs-12 col-sm-2">&nbsp;</div>

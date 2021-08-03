@@ -10,6 +10,7 @@ import 'assets/css/style.css'
 import 'assets/css/animate.css'
 import 'assets/css/pe-icon-7-stroke.css'
 import 'assets/css/style-magnific-popup.css'
+import 'assets/css/style-dev.css'
 
 /* Awsome Fonts */
 import 'assets/css/all.min.css'

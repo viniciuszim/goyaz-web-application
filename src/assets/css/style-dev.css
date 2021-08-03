@@ -1,0 +1,27 @@
+
+@media (max-width: 991px) {
+	.text-md-left {
+	  text-align: left;
+	}
+	.text-md-right {
+	  text-align: right;
+	}
+}
+
+@media (max-width: 768px) {
+	.text-sm-center {
+	  text-align: center;
+	}
+
+	.hidden-sm {
+    display: none;
+}
+}
+
+
+@media (max-width: 375px) {
+
+	.hidden-xs {
+	    display: none;
+	}
+}
