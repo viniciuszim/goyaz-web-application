@@ -792,7 +792,7 @@ ul.footer_social li a i:hover {
 }
 
 .home-section-no-form {
-  padding-bottom: 600px;
+  padding-bottom: 175px;
 }
 
 .home-section-overlay{
@@ -2126,25 +2126,25 @@ ul.benefits.white li i {
 .whatsapp {
   position: fixed;
   top: 74%;
-  right: 3%;
+  right: 7%;
   padding: 10px;
   z-index: 10000000;
 }
 
 @media (max-width: 991px) {
 	.whatsapp {
-	  right: 2%;
+	  right: 12%;
 	}
 }
 
 @media (max-width: 768px) {
 	.whatsapp {
-	  right: 2%;
+	  right: 6%;
 	}
 }
 
 @media (max-width: 375px) {
 	.whatsapp {
-	  right: 1%;
+	  right: 5%;
 	}
 }

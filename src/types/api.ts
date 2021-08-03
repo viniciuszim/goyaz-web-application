@@ -93,7 +93,7 @@ export type MenuPrincipalPageProps = {
 }
 
 export type BannerPrincipalPageProps = {
-  imagens: [ImageComp]
+  imagens: ImageComp
   titulo: string
   descricao: string
   link: string
@@ -190,7 +190,7 @@ export type SocialMidiaPageProps = {
 export type LandingPageProps = {
   Logo: LogoPageProps
   MenuPrincipal: [MenuPrincipalPageProps]
-  BannerPrincipal: BannerPrincipalPageProps
+  BannerPrincipal: [BannerPrincipalPageProps]
   Parceiros: ParceirosPageProps
   OQueFazemos: OQueFazemosPageProps
   ComoPodemosAjudar: ComoPodemosAjudarPageProps

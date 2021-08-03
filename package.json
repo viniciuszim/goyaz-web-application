@@ -30,6 +30,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-input-mask": "^2.0.4",
+    "react-slick": "^0.28.1",
     "styled-components": "5.2.1"
   },
   "devDependencies": {
@@ -43,6 +44,7 @@
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/react-input-mask": "^3.0.0",
+    "@types/react-slick": "^0.23.5",
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",

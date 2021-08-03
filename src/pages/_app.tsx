@@ -41,6 +41,14 @@ function App({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://kenwheeler.github.io/slick/slick/slick-theme.css"
+        />
 
         {/* Load JS here for greater good ============================= */}
         <script src="js/jquery-3.3.1.min.js"></script>

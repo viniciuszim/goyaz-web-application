@@ -36,7 +36,7 @@ const Main = (props: LandingPageProps) => {
     <>
       <Navigation {...props} />
 
-      <BannerPrincipal {...BannerPrincipalProps} />
+      <BannerPrincipal lista={BannerPrincipalProps} />
 
       <Caracteristicas {...CaracteristicasProps} />
 

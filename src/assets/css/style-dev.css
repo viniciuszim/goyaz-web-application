@@ -24,4 +24,8 @@
 	.hidden-xs {
 	    display: none;
 	}
+
+  .home-section-no-form {
+    padding-bottom: 600px;
+  }
 }
